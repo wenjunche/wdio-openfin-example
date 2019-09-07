@@ -4,10 +4,10 @@ const assert = require('assert');
 function switchWindowByTitle(windowTitle) {
     let done = false;
     while (!done) {
-        let ids = browser.getTabIds();
+        let ids = browser.getWindowHandles();
         console.log(`return from getTabIds ${JSON.stringify(ids)} `);
         for (let i=0; i<ids.length; i++) {
-            browser.switchTab(ids[i]);
+            browser.switchToWindow(ids[i]);
             console.log(`window title ${browser.getTitle()} `);
             if (browser.getTitle() === windowTitle) {
                 done = true;
@@ -41,6 +41,7 @@ function waitForFinDesktop(readyCallback) {
 describe('Test Hello OpenFin', function() {
     it('Switch to Hello OpenFin Main window', function () {
         switchWindowByTitle("Hello OpenFin");
+//        browser.switchToWindow("Hello OpenFin");
         const title = browser.getTitle();
         assert.equal(title, 'Hello OpenFin');
     });
@@ -50,12 +51,13 @@ describe('Test Hello OpenFin', function() {
     });
 
     it("Click notification button", function() {
-        browser.click("#desktop-notification");
+        const notificationButton = browser.$("#desktop-notification");
+        notificationButton.click();
         browser.pause(3000);  // Pause here so you can see the notification
      });
 
     it("Click CPU Info button", function() {
-        browser.click("#cpu-info");
+        browser.$("#cpu-info").click();
         browser.pause(3000);  // Pause here so you can see the CPU INFO child window
     });
 
@@ -64,7 +66,7 @@ describe('Test Hello OpenFin', function() {
     });
 
     it("Close CPU Info window", function(done) {
-        browser.click("#close-app");
+        $("#close-app").click();
     });
 
     it('Exit OpenFin Runtime', function (done) {

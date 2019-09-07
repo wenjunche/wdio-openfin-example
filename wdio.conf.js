@@ -1,5 +1,11 @@
 exports.config = {
     
+    // ==================================
+    // Where should your test be launched
+    // ==================================
+    //
+    runner: 'local',
+
     //
     // ==================
     // Specify Test Files
@@ -31,8 +37,8 @@ exports.config = {
     // e.g. using promises you can set the sync option to false.
     sync: true,
     //
-    // Level of logging verbosity: silent | verbose | command | data | result | error
-    logLevel: 'verbose',
+    // Level of logging verbosity: trace | debug | info | warn | error | silent
+    logLevel: 'error',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -59,11 +65,12 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     // services: ['selenium-standalone'],
-    port: '9515',
+    port: 9515,
     path: '/',
     services: ['openfin'],
     openfin: {
-        manifest: 'https://demoappdirectory.openf.in/desktop/config/apps/OpenFin/HelloOpenFin/selenium.json'
+        manifest: 'http://localhost:8081/app3.json',
+        manifest2: 'https://demoappdirectory.openf.in/desktop/config/apps/OpenFin/HelloOpenFin/selenium.json'
     },
 
     //
@@ -78,7 +85,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-    reporters: ['json'],
+    reporters: ['dot', 'spec'],
     
     //
     // Options to be passed to Mocha.
