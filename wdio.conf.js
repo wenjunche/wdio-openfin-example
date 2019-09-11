@@ -26,6 +26,8 @@ exports.config = {
     capabilities: [{
         browserName: 'openfin',
     }],
+    // directory for logs from chromedriver
+    chromeDriverLogs: "logs", 
     //
     // ===================
     // Test Configurations
@@ -69,8 +71,7 @@ exports.config = {
     path: '/',
     services: ['openfin'],
     openfin: {
-        manifest: 'http://localhost:8081/app3.json',
-        manifest2: 'https://demoappdirectory.openf.in/desktop/config/apps/OpenFin/HelloOpenFin/selenium.json'
+        manifest: 'https://demoappdirectory.openf.in/desktop/config/apps/OpenFin/HelloOpenFin/selenium.json'
     },
 
     //
