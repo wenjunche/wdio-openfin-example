@@ -28,12 +28,3 @@ export.config = {
 };
 ```
 
-## Options
-
-### chromeDriverLogs
-Path where all logs from the ChromeDriver server should be stored.
-
-Type: `String`
-
-----
-
