@@ -33,6 +33,5 @@ exports.config = {
     openfin: {
         manifest: 'https://demoappdirectory.openf.in/desktop/config/apps/OpenFin/HelloOpenFin/selenium.json',
         debuggerPort: 9090
-    },
-    chromeDriverLogs: './'
+    }
 }

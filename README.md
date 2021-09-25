@@ -20,12 +20,10 @@ The following example configuration shows how to start OpenFin Runtime with app 
 ```js
 // wdio.conf.js
 export.config = {
-  port: '9515',
-  path: '/',
-  // ...
   services: ['openfin'],
   openfin: {
-     manifest: 'https://demoappdirectory.openf.in/desktop/config/apps/OpenFin/HelloOpenFin/selenium.json'
+     manifest: 'https://demoappdirectory.openf.in/desktop/config/apps/OpenFin/HelloOpenFin/selenium.json',
+     debuggerPort: 9090 // required as a workaround for an issue in ChromeDriver
   }
 };
 ```
